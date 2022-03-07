@@ -19,16 +19,16 @@ struct MainView: View {
                     Image(systemName: "chevron.up.square")
                         .scaleEffect(showAward ? 2 : 1)
                         .rotationEffect(.degrees(showAward ? 0 : 180))
-//                        .animation(.default)
+                        .animation(.default)
                 }
             }
             
             Spacer()
-            if showAward {
-                GradientRectangles()
-                    .frame(width: 250, height: 250)
-                    .transition(.transition)
+            ZStack{
+                MestoSlovView(showAward: $showAward)
+                MestoSlovDinamik(showAward: $showAward)
             }
+            .frame(width: 250, height: 250)
 
             Spacer()
         }
